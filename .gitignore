@@ -1,0 +1,6 @@
+.idea
+
+bower_components
+build
+junk
+node_modules

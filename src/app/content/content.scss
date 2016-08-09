@@ -1,0 +1,152 @@
+@font-face {
+  font-family: 'joystixMonospace';
+  src: url('/content/joystixMonospace.ttf');
+}
+
+html > body {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'joystixMonospace';
+  user-select: none;
+}
+
+.content {
+  position: absolute;
+  text-align: start;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #000000;
+
+  &.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .menu {
+      width: 20em;
+      max-height: 60%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #ffffff;
+      position: absolute;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      input:focus,
+      select:focus,
+      textarea:focus,
+      button:focus {
+        outline: none;
+      }
+
+      input {
+        font-family: 'joystixMonospace';
+      }
+
+      & > * {
+        padding: 0.5em;
+        margin: 0.5em 0;
+        border: 0.3em solid;
+
+        &.button:hover,
+        &.button.controller-selected,
+        &.rom.list span:hover,
+        &.rom.list span.controller-selected {
+          animation: selected-btn 5s infinite;
+        }
+
+        &.rom.list {
+          overflow-y: auto;
+
+          &::-webkit-scrollbar {
+            width: 1em;
+          }
+
+          &::-webkit-scrollbar-track {
+            border-left: 0.3em solid;
+            background-color: #ffffff;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            border-left: 0.3em solid;
+            background-color: #808080;
+          }
+
+          span {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+            overflow: hidden;
+          }
+        }
+
+        &.rom.upload {
+          position: relative;
+
+          & > input {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.player-controls {
+  padding: 1em;
+  background-color: #ffffff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &.player1 {
+    left: 0;
+  }
+
+  &.player2 {
+    right: 0;
+  }
+
+  & .keyboard-controls {
+    list-style: square outside;
+  }
+
+  & > span {
+    text-align: center;
+    display: block;
+    margin-top: 1em;
+    text-transform: uppercase;
+
+    .selected-controller {
+      color: #d2691e;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+}
+
+@keyframes selected-btn
+{
+  0%   {background: #ff8337;}
+  50%  {background: #ffff00;}
+  100%   {background:#ff8337;}
+}
+
+* {
+  cursor: default;
+}
