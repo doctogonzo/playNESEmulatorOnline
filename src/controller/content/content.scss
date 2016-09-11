@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'joystixMonospace';
-  src: url('/content/joystixMonospace.ttf');
+  src: url('/playNESEmulatorOnline/content/joystixMonospace.ttf');
 }
 
 html > body {
@@ -14,121 +14,95 @@ html > body {
   font-family: 'joystixMonospace';
   background-color: #000000;
   user-select: none;
-}
 
-.dir-container {
-  height: 100%;
-  width: 50%;
-  position: absolute;
-  left: 0;
-  top: 0;
-
-  .controller-img {
+  .dir-container {
+    height: 100%;
+    width: 50%;
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #ffffff;
 
-    &.pushed {
-      background-color: #808080;
-    }
-  }
-}
-
-.key-left-img {
-  clip-path: polygon(10% 50%, 20% 40%, 20% 45%, 40% 45%, 40% 55%, 20% 55%, 20% 60%);
-  width: 100%;
-  height: 100%;
-}
-
-.key-right-img {
-  clip-path: polygon(90% 50%, 80% 40%, 80% 45%, 60% 45%, 60% 55%, 80% 55%, 80% 60%);
-  width: 100%;
-  height: 100%;
-}
-
-.key-up-img {
-  clip-path: polygon(50% 10%, 40% 20%, 45% 20%, 45% 40%, 55% 40%, 55% 20%, 60% 20%);
-  width: 100%;
-  height: 100%;
-}
-
-.key-down-img {
-  clip-path: polygon(50% 90%, 40% 80%, 45% 80%, 45% 60%, 55% 60%, 55% 80%, 60% 80%);
-  width: 100%;
-  height: 100%;
-}
-
-//#KEY_LEFT {
-//  clip-path: polygon(0 0, 0 100%, 45% 55%, 45% 45%);
-//  width: 100%;
-//  height: 100%;
-//}
-//
-//#KEY_RIGHT {
-//  clip-path: polygon(100% 0, 100% 100%, 55% 55%, 55% 45%);
-//  width: 100%;
-//  height: 100%;
-//}
-//
-//#KEY_UP {
-//  clip-path: polygon(0 0, 100% 0, 55% 45%, 45% 45%);
-//  width: 100%;
-//  height: 100%;
-//}
-//
-//#KEY_DOWN {
-//  clip-path: polygon(0 100%, 100% 100%, 55% 55%, 45% 55%);
-//  width: 100%;
-//  height: 100%;
-//}
-
-.btn-container {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 50%;
-
-  .controller-key {
-    position: absolute;
-    height: 50%;
-    width: 50%;
-
-    & > span {
+    .controller-img {
       position: absolute;
-      text-align: center;
-      width: 80%;
+      left: 0;
+      top: 0;
       background-color: #ffffff;
-      padding: 0.5em;
-      border-radius: 10em;
-      left: 10%;
-      top: 50%;
-      transform: translateY(-50%);
-    }
 
-    &.pushed > span {
-      background-color: #808080;
+      &.pushed {
+        background-color: #808080;
+      }
     }
   }
-}
 
-#KEY_SELECT {
-  top: 0;
-  left: 0;
-}
+  .key-left-img {
+    clip-path: polygon(10% 50%, 20% 40%, 20% 45%, 40% 45%, 40% 55%, 20% 55%, 20% 60%);
+    width: 100%;
+    height: 100%;
+  }
 
-#KEY_START {
-  top: 0;
-  right: 0;
-}
+  .key-right-img {
+    clip-path: polygon(90% 50%, 80% 40%, 80% 45%, 60% 45%, 60% 55%, 80% 55%, 80% 60%);
+    width: 100%;
+    height: 100%;
+  }
 
-#KEY_B {
-  bottom: 0;
-  left: 0;
-}
+  .key-up-img {
+    clip-path: polygon(50% 10%, 40% 20%, 45% 20%, 45% 40%, 55% 40%, 55% 20%, 60% 20%);
+    width: 100%;
+    height: 100%;
+  }
 
-#KEY_A {
-  bottom: 0;
-  right: 0;
+  .key-down-img {
+    clip-path: polygon(50% 90%, 40% 80%, 45% 80%, 45% 60%, 55% 60%, 55% 80%, 60% 80%);
+    width: 100%;
+    height: 100%;
+  }.btn-container {
+     position: absolute;
+     right: 0;
+     top: 0;
+     height: 100%;
+     width: 50%;
+
+     #KEY_SELECT {
+       top: 0;
+       left: 0;
+     }
+
+     #KEY_START {
+       top: 0;
+       right: 0;
+     }
+
+     #KEY_B {
+       bottom: 0;
+       left: 0;
+     }
+
+     #KEY_A {
+       bottom: 0;
+       right: 0;
+     }
+
+     .controller-key {
+       position: absolute;
+       height: 50%;
+       width: 50%;
+
+       & > span {
+         position: absolute;
+         text-align: center;
+         width: 80%;
+         background-color: #ffffff;
+         padding: 0.5em;
+         border-radius: 10em;
+         left: 10%;
+         top: 50%;
+         transform: translateY(-50%);
+       }
+
+       &.pushed > span {
+         background-color: #808080;
+       }
+     }
+   }
 }

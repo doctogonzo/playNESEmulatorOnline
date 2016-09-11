@@ -96,11 +96,11 @@
         });
         var soundBtn = $('.sound-btn', $menuHolder).on('click', function() {
                 if (nes.opts.emulateSound) {
-                    nes.opts.emulateSound = false;
+                    nes.enableSound(false);
                     soundBtn.html('Sound: Off');
                 }
                 else {
-                    nes.opts.emulateSound = true;
+                    nes.enableSound(true);
                     soundBtn.html('Sound: On');
                 }
             }),
@@ -164,6 +164,8 @@
             $menuHolder.hide();
             if (!nes.isRunning)
                 nes.start();
+
+            menuActivated = false;
         }
 
         function showMenu(main) {
@@ -179,6 +181,8 @@
             $menuHolder.show();
             if (!firstPause && nes.isRunning)
                 nes.stop();
+
+            menuActivated = true;
         }
 
         function setLoading() {

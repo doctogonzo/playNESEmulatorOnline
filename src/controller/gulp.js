@@ -40,8 +40,7 @@ exports.build = function(srcPath, destPath, addr, minify) {
         gulp.src(srcPath + "/*.html")
             .pipe(rigger())
             .pipe(replace("<!-- inject:js -->", '<script src="'+addr+destPath+'app.js"></script>'))
-            .pipe(replace("<!-- inject:css -->", '<link rel="stylesheet" href="'+addr+destPath+'content.css">'))
-            .pipe(gulpif(minify, htmlmin({collapseWhitespace: true}))),
+            .pipe(replace("<!-- inject:css -->", '<link rel="stylesheet" href="'+addr+destPath+'content.css">')),
 
         //--- content.css
         gulp.src(mainBowerFiles({group: 'controller'}).concat(srcPath + "/**/*.*"))

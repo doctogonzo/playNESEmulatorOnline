@@ -49,7 +49,7 @@ gulp.task('build', function(){
 
 gulp.task('release', function(){
     return del(['build/**/*', '!build/.git/**/*']).then(function() {
-        getBuildStream('http://doctogonzo.github.io/JsRailScrollShooter', true).pipe(gulp.dest('build/'));
+        getBuildStream('https://doctogonzo.github.io/playNESEmulatorOnline', true).pipe(gulp.dest('build/'));
     });
 });
 

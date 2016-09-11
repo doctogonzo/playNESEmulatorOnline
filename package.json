@@ -36,6 +36,7 @@
   "authors": [
     "Vladimir Yezesky"
   ],
-  "license": "ISC",
-  "dependencies": {}
+  "license": "MIT",
+  "dependencies": {},
+  "repository": "https://github.com/doctogonzo/playNESEmulatorOnline"
 }
