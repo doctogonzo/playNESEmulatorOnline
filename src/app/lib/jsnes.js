@@ -73,7 +73,7 @@ JSNES.prototype = {
         this.cpu.reset();
         this.ppu.reset();
         this.papu.reset();
-        this.enableSound(this.opts.emulateSound);
+        this.papu.enableSound(this.opts.emulateSound);
     },
     
     start: function() {
@@ -92,7 +92,7 @@ JSNES.prototype = {
                     self.printFps();
                 }, this.opts.fpsInterval);
 
-                this.enableSound(this.opts.emulateSound);
+                this.papu.enableSound(this.opts.emulateSound);
             }
         }
         else {
@@ -176,7 +176,7 @@ JSNES.prototype = {
     stop: function() {
         clearInterval(this.frameInterval);
         clearInterval(this.fpsInterval);
-        this.enableSound(false);
+        this.papu.enableSound(false);
         this.isRunning = false;
     },
     
@@ -3852,8 +3852,9 @@ JSNES.PAPU.prototype = {
         if (sampleValueL < this.minSample) {
             this.minSample = sampleValueL;
         }
-        this.audio.sampleBufferL[this.audio.bufferIndex] = sampleValueL;
-        this.audio.sampleBufferR[this.audio.bufferIndex] = sampleValueR;
+
+        this.audio.sampleBufferL[this.audio.bufferIndex] = sampleValueL * 2 / 0xFFFF - 1;
+        this.audio.sampleBufferR[this.audio.bufferIndex] = sampleValueR * 2 / 0xFFFF - 1;
         this.audio.bufferIndex++;
         this.audio.globalBufferIndex++;
 
@@ -7030,7 +7031,7 @@ if (typeof jQuery !== 'undefined') {
                 },
 
                 updateStatus: function(s) {
-                    console.log(s);
+                    //console.log(s);
                 },
 
                 writeFrame: function(buffer, prevBuffer) {
